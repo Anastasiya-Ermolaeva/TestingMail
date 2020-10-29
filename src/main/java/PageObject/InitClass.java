@@ -99,9 +99,9 @@ public class InitClass extends SeleniumClass {
     @FindBy(xpath = ".//span[@title='Вернуться']")
     private WebElement  returnIncomingMessages;
     //выбираем письма для удаления
-    @FindBy(xpath = "(.//button[@class='ll-av ll-av_size_common ll-av_centered stop-animate'])[1]")
+    @FindBy(xpath = ".//button[@class='ll-av ll-av_size_common ll-av_centered stop-animate']")
     private WebElement  deletedMessages1;
-    @FindBy(xpath = "(.//button[@class='ll-av ll-av_size_common ll-av_centered stop-animate'])[2]")
+    @FindBy(xpath = ".//button[@class='ll-av ll-av_size_common ll-av_centered']")
     private WebElement  deletedMessages2;
     //удалить письма
     @FindBy(xpath = ".//span[@title= 'Удалить']")
