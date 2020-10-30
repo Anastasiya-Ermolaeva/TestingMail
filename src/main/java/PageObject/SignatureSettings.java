@@ -38,7 +38,6 @@ public class SignatureSettings extends SeleniumClass {
     //вернуться во входящие сообщения
     @FindBy(xpath = ".//span[@title='Вернуться']")
     private WebElement  returnIncomingMessages;
-
     @Step("Кликаем по кнопке - перейти в настройки")
     public void clickCustomization(){ click(customization); }
     @Step("Кликаем по кнопке - перейти во все настройки")
