@@ -87,11 +87,9 @@ public class InitClass extends SeleniumClass {
     //сохранить изменение подписи
     @FindBy(xpath = "(.//span[contains(text(), 'Сохранить')])[2]")
     private WebElement  saveSignature;
-
     //вернуться в почту
     @FindBy(xpath = ".//span[contains(text(), 'Вернуться в почту')]")
     private WebElement  returnMail;
-
     //проверка соответствия подписи в письме
     @FindBy(xpath = ".//div[contains(text(), 'Анастасия')]")
     private WebElement  signatureEmail;
@@ -110,66 +108,68 @@ public class InitClass extends SeleniumClass {
     @FindBy(xpath = "//*[@id=\"app-canvas\"]/div/div[1]/div[1]/div/div[2]/div[2]/div/div/div[1]/div/div/div[1]/div/div/div/a[1]/div[4]")
     private WebElement  pr;
 
-
-
-
-
-
-
-
-
-
-
-
-
+    //ввод логина почты
     public void setLoginMail(String text) {setText(loginMail, text); }
+    // нажатие кнопки "Ввод пароля"
     public void clickPasswordEntry(){ click(passwordEntry); }
+    //ввести пароль почты
     public void setPasswordWrite(String text) { setText(passwordWrite, text); }
+    //нажатие кнопки для входа в почту
     public void clickLogInToMail(){ click(logInToMail); }
-
+    // нажатие нопки - написать письмо
     public void clickWriteLetter(){ click(writeLetter); }
+    //проверка - окрылась ли форма письма
     public void waitVisibleEmailCreationForm(){ waitVisibilityOfElement(emailCreationForm); }
-
+    //ввести адрес получателя письма
     public void setToField(String text) { setText(toField, text); }
+    //ввести тему письма
     public void setMessageSubject(String text) { setText(messageSubject, text); }
+    //ввести текст сообщения
     public void setWriteMessage(String text) { setText(writeMessage, text); }
+    //вставка файла в письмо
     public void setA(String text) { setText(a, text); }
+    //отправка письма
     public void clickSendFile() {click(sendFile); }
+    // закрыть форму для перехода  входящим сообщениям
     public void clickToClose() {click(toClose); }
+    // проверить есть ли письмо с указанной темой
     public void waitVisibleEmailSubjectInTheList(){ waitVisibilityOfElement( emailSubjectInTheList); }
+    //открыть письмо
     public void clickOpenLetter() {click(openLetter); }
     public void clickOpenL() {click(openL); }
+    //проверка соответствует ли тема письма
     public void waitVisibleCheckingEmailSubject(){ waitVisibilityOfElement( checkingEmailSubject); }
+    //проверк соответствует ли текст письма
     public void waitVisibleCheckingTheEmailTest(){ waitVisibilityOfElement( checkingTheEmailTest); }
+    //проверка наличия файла
     public void waitVisibleCheckingFheFile(){ waitVisibilityOfElement( checkingFheFile); }
+    // скачать файл
     public void clickDownloadFheFile(){ click(downloadFheFile); }
+    //проверка есть ли файл в директории загрузки
     public void waitVisibleCheckingTheUploadedEmail(){ waitVisibilityOfElement( checkingTheUploadedEmail); }
+    //перейти в настройки
     public void clickCustomization(){ click(customization); }
+    //перейти во все настройки
     public void clickAllCustomization(){ click(allCustomization); }
-
     //public void clickNameAndSignature(){ click(nameAndSignature); }
+    //выбираем настройки по умолчанию
     public void clickByDefault(){ click(byDefault); }
+    //вводим новую подпись
     public void setWriteSignature(String text) { setTextClear(writeSignature, text); }
+    //сохраняем новую подпись
     public void clickSaveSignature(){ click(saveSignature); }
+    //возвращаемся на почту в раздел входящих сообщений
     public void clickReturnMail(){ click( returnMail); }
+    // проверка соответствует ли заданная подпись письма
     public void waitVisibleSignatureEmail(){ waitVisibilityOfElement( signatureEmail); }
+    //вернуться во входящие сообщения
     public void clickReturnIncomingMessages(){ click(returnIncomingMessages); }
+    //выбираем 2 письма для удаления
     public void clickDeletedMessages1(){ click(deletedMessages1); }
     public void clickDeletedMessages2(){ click(deletedMessages2); }
+    //удаляем письма
     public void clickDeleted(){ click(deleted); }
+    //проверяем что писем больше нет на почте
     public void waitVisiblePr(){ waitVisibilityOfElement( pr); }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
