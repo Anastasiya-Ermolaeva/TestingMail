@@ -1,6 +1,8 @@
 package TestMail;
-
-import PageObject.InitClass;
+import PageObject.LoginMail;
+import PageObject.MessageIncoming;
+import PageObject.SendEmail;
+import PageObject.SignatureSettings;
 import org.testng.annotations.Test;
 
 public class TestClass extends ChromeClass{
@@ -10,99 +12,102 @@ public class TestClass extends ChromeClass{
         getDriver().get("https://mail.ru/");
         // форма страницы на весь экран
         getDriver().manage().window().maximize();
-        InitClass in = new InitClass(getDriver());
+        LoginMail lm = new LoginMail(getDriver());
+        SendEmail sm = new SendEmail(getDriver());
+        MessageIncoming mi = new MessageIncoming(getDriver());
+        SignatureSettings ss = new SignatureSettings(getDriver());
         //ввод логина почты
-        in.setLoginMail("n.ermm");
+        lm.setLoginMail("n.ermm");
         // нажатие кнопки "Ввод пароля"
-        in.clickPasswordEntry();
+        lm.clickPasswordEntry();
         //ввести пароль почты
-        in.setPasswordWrite("fozuha48");
+        lm.setPasswordWrite("fozuha48");
         //нажатие кнопки для входа в почту
-        in.clickLogInToMail();
+        lm.clickLogInToMail();
         // нажатие нопки - написать письмо
-        in.clickWriteLetter();
+        sm.clickWriteLetter();
         //проверка - окрылась ли форма письма
-        in.waitVisibleEmailCreationForm();
+        sm.waitVisibleEmailCreationForm();
         //ввести адрес получателя письма
-        in.setToField("n.ermm@mail.ru");
+        sm.setToField("n.ermm@mail.ru");
         //ввести тему письма
-        in.setMessageSubject("Автотестирование");
+        sm.setMessageSubject("Автотестирование");
         //ввести текст сообщения
-        in.setWriteMessage("Автоматизация тестирования приложений – это процесс проверки программного обеспечения, который включает проведение таких основных функций и шагов теста, как запуск, инициализация, выполнение, анализ и выдача результата, автоматически посредством специализированных инструментов.\n");
+        sm.setWriteMessage("Автоматизация тестирования приложений – это процесс проверки программного обеспечения, который включает проведение таких основных функций и шагов теста, как запуск, инициализация, выполнение, анализ и выдача результата, автоматически посредством специализированных инструментов.\n");
         //вставка файла в письмо
-        in.setA("C:\\file.txt");
+        sm.setA();
         //отправка письма
-        in.clickSendFile();
+        sm.clickSendFile();
         // закрыть форму для перехода  входящим сообщениям
-        in.clickToClose();
+        mi.clickToClose();
         // проверить есть ли письмо с указанной темой
-        in.waitVisibleEmailSubjectInTheList();
+        mi.waitVisibleEmailSubjectInTheList();
         //открыть письмо
-        in.clickOpenLetter();
-        in.clickOpenL();
+        mi.clickOpenLetter();
+        mi.clickOpenL();
         //проверка соответствует ли тема письма
-        in.waitVisibleCheckingEmailSubject();
+        mi.waitVisibleCheckingEmailSubject();
         //проверк соответствует ли текст письма
-        in.waitVisibleCheckingTheEmailTest();
+        mi.waitVisibleCheckingTheEmailTest();
         //проверка наличия файла
-        in.waitVisibleCheckingFheFile();
+        mi.waitVisibleCheckingFheFile();
         // скачать файл
-        in.clickDownloadFheFile();
+        mi.clickDownloadFheFile();
         //перейти в раздел загрузки
         getDriver().get("chrome://downloads/");
         //проверка есть ли файл в директории загрузки
-        in.waitVisibleCheckingTheUploadedEmail();
+        mi.waitVisibleCheckingTheUploadedEmail();
         //вернуться на страницу почты
         getDriver().get("https://e.mail.ru/inbox");
         //перейти в настройки
-        in.clickCustomization();
+        ss.clickCustomization();
         //перейти во все настройки
-        in.clickAllCustomization();
+        ss.clickAllCustomization();
         getDriver().get("https://e.mail.ru/settings/general#messages");
         // in.clickNameAndSignature();
         //выбираем настройки по умолчанию
-        in.clickByDefault();
+        ss.clickByDefault();
         //вводим новую подпись
-        in.setWriteSignature(" --\n Анастасия");
+        ss.setWriteSignature(" --\n Анастасия");
         //сохраняем новую подпись
-        in.clickSaveSignature();
+        ss.clickSaveSignature();
         //возвращаемся на почту в раздел входящих сообщений
-        in.clickReturnMail();
+        ss.clickReturnMail();
         // нажатие нопки - написать письмо
-        in.clickWriteLetter();
+        sm.clickWriteLetter();
         //проверка - окрылась ли форма письма
-        in.waitVisibleEmailCreationForm();
+        sm.waitVisibleEmailCreationForm();
         // проверка соответствует ли заданная подпись письма
-        in.waitVisibleSignatureEmail();
+        ss.waitVisibleSignatureEmail();
         //ввести адрес получателя письма
-        in.setToField("n.ermm@mail.ru");
+        sm.setToField("n.ermm@mail.ru");
         //ввести тему письма
-        in.setMessageSubject("Автотестирование");
+        sm.setMessageSubject("Автотестирование");
         //ввести текст сообщения
-        in.setWriteMessage("Автоматизация тестирования приложений – это процесс проверки программного обеспечения, который включает проведение таких основных функций и шагов теста, как запуск, инициализация, выполнение, анализ и выдача результата, автоматически посредством специализированных инструментов.\n");
+        sm.setWriteMessage("Автоматизация тестирования приложений – это процесс проверки программного обеспечения, который включает проведение таких основных функций и шагов теста, как запуск, инициализация, выполнение, анализ и выдача результата, автоматически посредством специализированных инструментов.\n");
         //отправка письма
-        in.clickSendFile();
+        sm.clickSendFile();
         // закрыть форму для перехода  входящим сообщениям
-        in.clickToClose();
+        mi.clickToClose();
         // проверить есть ли письмо с указанной темой
-        in.waitVisibleEmailSubjectInTheList();
+        mi.waitVisibleEmailSubjectInTheList();
         //открыть письмо
-        in.clickOpenLetter();
-        in.clickOpenL();
+        mi.clickOpenLetter();
+        mi.clickOpenL();
         //проверка соответствует ли тема письма
-        in.waitVisibleCheckingEmailSubject();
+        mi.waitVisibleCheckingEmailSubject();
         //проверк соответствует ли текст письма
-        in.waitVisibleCheckingTheEmailTest();
+        mi.waitVisibleCheckingTheEmailTest();
         // проверка соответствует ли заданная подпись письма
-        in.waitVisibleSignatureEmail();
+        ss.waitVisibleSignatureEmail();
         //вернуться во входящие сообщения
-        in.clickReturnIncomingMessages();
+        ss.clickReturnIncomingMessages();
         //выбираем 2 письма для удаления
-        in.clickDeletedMessages1();
-        in.clickDeletedMessages2();
+        mi.clickDeletedMessages1();
+        mi.clickDeletedMessages2();
         //удаляем письма
-        in.clickDeleted();
+        mi.clickDeleted();
         //проверяем что писем больше нет на почте
-        in.waitVisiblePr();
+        mi.waitVisiblePr();
     }
 }
